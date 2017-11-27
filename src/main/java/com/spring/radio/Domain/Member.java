@@ -20,6 +20,7 @@ public class Member implements Serializable {
     @Column(name = "password")
     private String password;
 
+<<<<<<< HEAD
     @Column(name = "role")
     private String role;
 
@@ -34,13 +35,23 @@ public class Member implements Serializable {
     }
 
     public Member(String username, String password) {
+=======
+    public Member() {
+    }
+
+    public Member(int id_member, String username, String password) {
+        this.id_member = id_member;
+>>>>>>> Backend
         this.username = username;
         this.password = password;
     }
 
+<<<<<<< HEAD
     public Member() {
     }
 
+=======
+>>>>>>> Backend
     public int getId_member() {
         return id_member;
     }
@@ -65,6 +76,7 @@ public class Member implements Serializable {
         this.password = password;
     }
 
+<<<<<<< HEAD
     public String getRole() {
         return role;
     }
@@ -80,4 +92,6 @@ public class Member implements Serializable {
     public void setEnable(boolean enable) {
         this.enable = enable;
     }
+=======
+>>>>>>> Backend
 }
