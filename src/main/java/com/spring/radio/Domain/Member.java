@@ -20,13 +20,25 @@ public class Member implements Serializable {
     @Column(name = "password")
     private String password;
 
-    public Member() {
-    }
+    @Column(name = "role")
+    private String role;
 
-    public Member(int id_member, String username, String password) {
-        this.id_member = id_member;
+    @Column(name = "enable")
+    private boolean enable;
+
+    public Member(String username, String password, String role, boolean enable) {
         this.username = username;
         this.password = password;
+        this.role = role;
+        this.enable = enable;
+    }
+
+    public Member(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Member() {
     }
 
     public int getId_member() {
@@ -53,4 +65,19 @@ public class Member implements Serializable {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
 }
