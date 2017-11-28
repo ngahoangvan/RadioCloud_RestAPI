@@ -29,19 +29,16 @@ public class Profile implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "level")
-    private String level;
-
     public Profile() {
     }
 
-    public Profile(String name, String gender, String date_of_birth, String address, String email, String level) {
+    public Profile(String name, String gender, String date_of_birth, String address, String email) {
         this.name = name;
         this.gender = gender;
         this.date_of_birth = date_of_birth;
         this.address = address;
         this.email = email;
-        this.level = level;
+
     }
 
     public int getId_profile() {
@@ -92,11 +89,4 @@ public class Profile implements Serializable {
         this.email = email;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
 }
