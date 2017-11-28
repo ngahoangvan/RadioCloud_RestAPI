@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
         auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("select username,password, true as enabled from \"member\" where  username=?")
+                .usersByUsernameQuery("select username,password,enabled from \"member\" where  username=?")
                 .authoritiesByUsernameQuery("select username, role from \"member\" where username=?");
 //                .passwordEncoder(new BCryptPasswordEncoder(16));
     }
