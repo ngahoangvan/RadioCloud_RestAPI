@@ -29,6 +29,10 @@ public class Profile implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_profile", referencedColumnName = "id_member")
+    private Member member;
+
     public Profile() {
     }
 
@@ -41,52 +45,66 @@ public class Profile implements Serializable {
 
     }
 
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
     public int getId_profile() {
         return id_profile;
     }
 
-    public void setId_profile(int id_profile) {
+    public Profile setId_profile(int id_profile) {
         this.id_profile = id_profile;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Profile setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public Profile setGender(String gender) {
         this.gender = gender;
+        return this;
     }
 
     public String getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(String date_of_birth) {
+    public Profile setDate_of_birth(String date_of_birth) {
         this.date_of_birth = date_of_birth;
+        return this;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public Profile setAddress(String address) {
         this.address = address;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public Profile setEmail(String email) {
         this.email = email;
+        return this;
     }
 
 }
