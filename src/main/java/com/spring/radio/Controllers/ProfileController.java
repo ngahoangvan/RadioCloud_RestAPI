@@ -2,6 +2,7 @@ package com.spring.radio.Controllers;
 
 import com.spring.radio.Domain.Member;
 import com.spring.radio.Domain.Profile;
+import com.spring.radio.Domain.Radio;
 import com.spring.radio.Repository.profileRepository;
 import com.spring.radio.Service.profileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class ProfileController {
     @GetMapping("/search/{name}")
     public  Iterable<Profile> getAllProfile(@PathVariable String name ) {
         return profileService.search(name);
+    }
+
+    @GetMapping("/{id}")
+    public Profile getProfile(@PathVariable int id){
+        return profileRepository.findOne(id);
     }
 
     @PostMapping("/save")

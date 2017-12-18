@@ -23,12 +23,12 @@ public class Music implements Serializable {
     private String link;
 
     @Column(name = "id_radio")
-    private String id_radio;
+    private int id_radio;
 
     public Music() {
     }
 
-    public Music(String name, String author, String link,String id_radio) {
+    public Music(String name, String author, String link,int id_radio) {
         this.name = name;
         this.author = author;
         this.link = link;
@@ -67,11 +67,11 @@ public class Music implements Serializable {
         this.link = link;
     }
 
-    public String getId_raido() {
+    public int getId_raido() {
         return id_radio;
     }
 
-    public void setId_raido(String id_radio) {
+    public void setId_raido(int id_radio) {
         this.id_radio = id_radio;
     }
 }
