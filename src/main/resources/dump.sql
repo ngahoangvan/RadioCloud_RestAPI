@@ -15,22 +15,23 @@ CREATE TABLE "profile" (
     email character varying(255) NOT NULL
 );
 
-CREATE TABLE "radio" (
-    id_radio integer NOT NULL,
+CREATE TABLE "period" (
+    id_period integer NOT NULL,
     name character varying(255) NOT NULL,
     time time NOT NULL,
-    details text NOT NULL,
     picture text  NOT NULL
 
 );
 
-CREATE TABLE "music" (
-    id_music integer NOT NULL,
+CREATE TABLE "radio" (
+    id_radio integer NOT NULL,
     name character varying(255) NOT NULL,
-    author character varying(255) NOT NULL
+    author character varying(255) NOT NULL,
     link text NOT NULL,
-    id_radio integer NOT NULL
+    details text NOT NULL,
+    id_period integer NOT NULL
 );
+
 
 
 ALTER TABLE ONLY "profile"
@@ -39,8 +40,8 @@ ADD CONSTRAINT profile_pkey PRIMARY KEY (id_profile);
 ALTER TABLE ONLY "member"
 ADD CONSTRAINT member_pkey PRIMARY KEY (id_member);
 
+ALTER TABLE ONLY "period"
+ADD CONSTRAINT period_pkey PRIMARY KEY (id_period);
+
 ALTER TABLE ONLY "radio"
 ADD CONSTRAINT radio_pkey PRIMARY KEY (id_radio);
-
-ALTER TABLE ONLY "music"
-ADD CONSTRAINT music_pkey PRIMARY KEY (id_music);
