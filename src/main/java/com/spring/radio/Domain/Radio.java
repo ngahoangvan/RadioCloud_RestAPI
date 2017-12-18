@@ -2,13 +2,10 @@ package com.spring.radio.Domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.List;
 
 @Entity
 @Table(name = "radio")
-public class Radio  implements Serializable {
-
+public class Radio implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -19,37 +16,35 @@ public class Radio  implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "time")
-    private Time time;
+    @Column(name = "author")
+    private String author;
+
+    @Column(name = "link")
+    private String link;
 
     @Column(name = "details")
     private String details;
 
-    @Column(name = "picture")
-    private String picture;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_radio", referencedColumnName = "id_radio")
-    private List<Music> music;
-
-
+    @Column(name = "id_period")
+    private int id_period;
 
     public Radio() {
     }
 
-    public Radio(String name, Time time, String details, String picture) {
+    public Radio(String name, String author, String link, String details, int id_period) {
         this.name = name;
-        this.time = time;
+        this.author = author;
+        this.link = link;
         this.details = details;
-        this.picture = picture;
+        this.id_period = id_period;
     }
 
     public int getId_radio() {
         return id_radio;
     }
 
-    public void setId_radio(int id_radio) {
-        this.id_radio = id_radio;
+    public void setId_radio(int id_music) {
+        this.id_radio = id_music;
     }
 
     public String getName() {
@@ -60,12 +55,20 @@ public class Radio  implements Serializable {
         this.name = name;
     }
 
-    public Time getTime() {
-        return time;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getDetails() {
@@ -76,19 +79,11 @@ public class Radio  implements Serializable {
         this.details = details;
     }
 
-    public String getPicture() {
-        return picture;
+    public int getId_period() {
+        return id_period;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setId_period(int id_period) {
+        this.id_period = id_period;
     }
-    public List<Music> getMusic() {
-        return music;
-    }
-
-    public void setMusic(List<Music> music) {
-        this.music = music;
-    }
-
 }

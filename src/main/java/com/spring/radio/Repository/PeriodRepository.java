@@ -1,12 +1,12 @@
 package com.spring.radio.Repository;
 
-import com.spring.radio.Domain.Radio;
+import com.spring.radio.Domain.Period;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface RadioRepository extends JpaRepository<Radio, Integer> {
-    List<Radio> findByName(String q);
+public interface PeriodRepository extends JpaRepository<Period, Integer> {
+    List<Period> findByNameContaining(String q);
 }
