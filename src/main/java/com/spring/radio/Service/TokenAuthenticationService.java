@@ -4,16 +4,23 @@ package com.spring.radio.Service;
  * Created by nhs3108 on 29/03/2017.
  */
 
+import com.spring.radio.Domain.Member;
+import com.spring.radio.Repository.memberRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
+import java.util.*;
 
 import static java.util.Collections.emptyList;
+
 
 public class TokenAuthenticationService {
     static final long EXPIRATIONTIME = 864_000_000; // 10 days
@@ -22,6 +29,7 @@ public class TokenAuthenticationService {
     static final String HEADER_STRING = "Authorization";
 
     public static void addAuthentication(HttpServletResponse res, String username) {
+
         String JWT = Jwts.builder()
                 .setSubject(username)
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))

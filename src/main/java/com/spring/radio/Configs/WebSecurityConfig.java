@@ -28,13 +28,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/index").permitAll()//  request "/" ko cần login
+                .antMatchers("/").permitAll()//  request "/" ko cần login
                 .antMatchers(HttpMethod.POST, "/login").permitAll() // Request POST tới "/login" luôn được phép truy cập dù là đã authenticated hay chưa
 //                .antMatchers(HttpMethod.GET, "/profile/").hasAuthority("admin")
-//                .antMatchers(HttpMethod.GET, "/profile/").hasRole("admin")
-
-//                .antMatchers(HttpMethod.GET, "/profile/").access("hasRole('ADMIN')")
-                .anyRequest().authenticated()  // Các request còn lại đều cần được authenticated
+//                .antMatchers(HttpMethod.GET, "/period/**").hasRole("ADMIN")
+//                .antMatchers("/profile/**").access("hasRole('ADMIN')")
+//                .anyRequest().authenticated()  // Các request còn lại đều cần được authenticated
                 .and().logout().logoutSuccessUrl("/login?logout")//logout
                 .and()
                 .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)

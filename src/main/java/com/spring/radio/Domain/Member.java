@@ -12,7 +12,7 @@ public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_member")
     private int id_member;
 
@@ -22,10 +22,10 @@ public class Member implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "role")
+    @Column(name = "role",insertable = false )
     private String role;
 
-    @Column(name = "enabled")
+    @Column(name = "enabled", insertable = false)
     private boolean enabled;
 
     public Member(String username, String password, String role, boolean enabled) {

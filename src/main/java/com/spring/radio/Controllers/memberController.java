@@ -28,6 +28,11 @@ public class memberController {
         memberRepository.save(member);
     }
 
+    @PutMapping("/update")
+    public void updateMember(@RequestBody Member member){
+        memberRepository.save(member);
+    }
+
 
 
 }
